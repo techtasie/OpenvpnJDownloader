@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+   jdownloader:
+     build:
+       context: .
+       dockerfile: Dockerfile
+     environment:
+       - PUID=1000
+       - PGID=1000
+       - TZ=Europe/London
+       - UMASK_SET=022
+     cap_add:
+       - NET_ADMIN
+     networks:
+       - jdownloader_net
+     devices:
+       - "/dev/net/tun"
+     dns:
+       - 84.200.69.80
+       - 84.200.70.40
+     ports:
+       - "5800:5800"
+     volumes:
+       - ./openvpn:/etc/openvpn
+     restart: always 
+
+networks:
+  jdownloader_net:
+    driver: bridge
