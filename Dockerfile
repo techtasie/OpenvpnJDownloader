@@ -1,4 +1,4 @@
-FROM jlesage/jdownloader-2
+FROM jlesage/jdownloader-2:v1.7.0
 
 # Enviorment Variables
 ARG DEBIAN_FRONTEND="noninteractive"
