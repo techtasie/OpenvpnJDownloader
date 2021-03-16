@@ -19,8 +19,6 @@ services:
      dns:
        - 84.200.69.80
        - 84.200.70.40
-     ports:
-       - "5800:5800"
      volumes:
        - ./openvpn:/etc/openvpn
        - ./download:/output:rw
