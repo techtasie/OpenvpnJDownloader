@@ -28,6 +28,8 @@ RUN \
  apk add ip6tables ufw@edgecommunity && \
 	rm -rf /var/cache/apk/*
 
+# Disable IPv6 capability for ufw because the IPv6 module makes some problems sometimes
+RUN sed -i 's/IPV6=yes/IPV6=no/g' /etc/default/ufw
 
 WORKDIR /home
 
